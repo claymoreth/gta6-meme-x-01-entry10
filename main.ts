@@ -5,8 +5,9 @@
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { join } from "node:path";
 
+const botDir = process.env.MAKEFUN_BOT_DIR ?? process.cwd();
 const outDir = process.env.MAKEFUN_OUTPUT_DIR ?? "/output";
-const postPath = join(process.cwd(), "POST.json");
+const postPath = join(botDir, "POST.json");
 const raw = readFileSync(postPath, "utf8");
 const post = JSON.parse(raw);
 
